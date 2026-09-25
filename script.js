@@ -454,3 +454,61 @@ faqQuestions.forEach(question => {
     });
 
 });
+// =================================
+// DEPARTMENT DIRECTORY
+// =================================
+
+// VIEW DETAILS
+
+function toggleDepartment(id, button) {
+
+    const details = document.getElementById(id);
+
+    if (!details) return;
+
+    if (details.style.display === "block") {
+
+        details.style.display = "none";
+        button.textContent = "View Details";
+
+    } else {
+
+        details.style.display = "block";
+        button.textContent = "Hide Details";
+
+    }
+}
+
+
+// VIEW ALL DEPARTMENTS
+
+const viewAllDepartmentsBtn =
+    document.getElementById("viewAllDepartmentsBtn");
+
+const moreDepartments =
+    document.getElementById("moreDepartments");
+
+
+if (viewAllDepartmentsBtn && moreDepartments) {
+
+    viewAllDepartmentsBtn.addEventListener("click", function () {
+
+        if (moreDepartments.style.display === "grid") {
+
+            moreDepartments.style.display = "none";
+
+            viewAllDepartmentsBtn.innerHTML =
+                'View All Departments <span>↓</span>';
+
+        } else {
+
+            moreDepartments.style.display = "grid";
+
+            viewAllDepartmentsBtn.innerHTML =
+                'Hide Departments <span>↑</span>';
+
+        }
+
+    });
+
+}
