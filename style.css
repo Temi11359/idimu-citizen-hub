@@ -356,69 +356,7 @@ section {
     color: var(--text-muted);
 }
 
-/* ==========================================================================
-   6. DEPARTMENTS SECTION
-   ========================================================================== */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
 
-.dept-card {
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    text-align: center;
-    border: 1px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.dept-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-green);
-}
-
-.dept-card h3 {
-    font-size: 1.05rem;
-    color: var(--primary-green);
-    margin-top: 0.5rem;
-}
-
-/* ==========================================================================
-   7. EXECUTIVE LEADERSHIP SECTION
-   ========================================================================== */
-.exec-card {
-    background: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    text-align: center;
-    border: 1px solid var(--border-color);
-}
-
-.exec-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    background-color: #ddd;
-}
-
-.exec-info {
-    padding: 1.2rem;
-}
-
-.exec-info h3 {
-    font-size: 1.1rem;
-    color: var(--primary-green);
-}
-
-.exec-info p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: 500;
-}
 
 /* ==========================================================================
    8. SERVICES SECTION (Accordion)
@@ -879,4 +817,100 @@ footer {
     .hero p { font-size: 0.95rem; }
     .section-title h2 { font-size: 1.5rem; }
     .seal-badge { display: none; }
+}
+/* =========================================
+   FEATURED DEPARTMENTS
+========================================= */
+
+#departments .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+#departments .dept-card {
+    background: #ffffff;
+    border: 1px solid #e4eee7;
+    border-radius: 16px;
+    padding: 28px;
+    text-align: left;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#departments .dept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+}
+
+#departments .department-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaf5ee;
+    border-radius: 12px;
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+#departments .dept-card h3 {
+    color: #0b5d32;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+#departments .dept-card p {
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* VIEW ALL BUTTON */
+
+.departments-more {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.departments-more a {
+    display: inline-block;
+    background: #0b5d32;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.departments-more a:hover {
+    background: #084624;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    #departments .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* PHONE */
+
+@media (max-width: 600px) {
+    #departments .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    #departments .dept-card {
+        padding: 22px;
+    }
 }
