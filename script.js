@@ -297,3 +297,14 @@ document.addEventListener('keydown', (e) => {
         if (chatBox.classList.contains('active')) closeChatBox();
     }
 });
+function toggleDepartment(id, button) {
+    const details = document.getElementById(id);
+
+    if (details.style.display === "none" || details.style.display === "") {
+        details.style.display = "block";
+        button.textContent = "Hide Details";
+    } else {
+        details.style.display = "none";
+        button.textContent = "View Details";
+    }
+}
