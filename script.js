@@ -309,7 +309,9 @@ function toggleDepartment(id, button) {
     }
 }
 
-/* EVENTS CALENDAR */
+/* =================================
+   EVENTS CALENDAR
+================================= */
 
 const calendarDays = document.getElementById("calendar-days");
 const monthYear = document.getElementById("month-year");
@@ -320,6 +322,10 @@ const selectedDateMessage = document.getElementById("selected-date-message");
 let currentDate = new Date();
 
 function renderCalendar() {
+
+    if (!calendarDays || !monthYear) {
+        return;
+    }
 
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
@@ -337,37 +343,89 @@ function renderCalendar() {
 
     // Empty spaces before the first day
     for (let i = 0; i < firstDay; i++) {
-        const empty = document.createElement("div");
-        empty.className = "calendar-day empty";
-        calendarDays.appendChild(empty);
+
+        const emptyDay = document.createElement("div");
+
+        emptyDay.className = "calendar-day empty";
+
+        calendarDays.appendChild(emptyDay);
     }
 
-    // Create numbered days
+    // Create numbered dates
     for (let day = 1; day <= daysInMonth; day++) {
 
-        const dateBox = document.createElement("div");
+        const dayElement = document.createElement("div");
 
-        dateBox.className = "calendar-day";
-        dateBox.textContent = day;
+        dayElement.className = "calendar-day";
 
-        dateBox.addEventListener("click", function () {
-            selectedDateMessage.textContent =
-                monthName + " " + day + ", " + year +
-                " — No events scheduled.";
+        dayElement.textContent = day;
+
+        // Highlight today
+        const today = new Date();
+
+        if (
+            day === today.getDate() &&
+            month === today.getMonth() &&
+            year === today.getFullYear()
+        ) {
+            dayElement.classList.add("today");
+        }
+
+        // Click a date
+        dayElement.addEventListener("click", function () {
+
+            document
+                .querySelectorAll(".calendar-day.selected")
+                .forEach(function (selected) {
+                    selected.classList.remove("selected");
+                });
+
+            dayElement.classList.add("selected");
+
+            if (selectedDateMessage) {
+                selectedDateMessage.textContent =
+                    monthName + " " + day + ", " + year +
+                    " — No events scheduled.";
+            }
+
         });
 
-        calendarDays.appendChild(dateBox);
+        calendarDays.appendChild(dayElement);
     }
 }
 
-prevMonth.addEventListener("click", function () {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();
-});
 
-nextMonth.addEventListener("click", function () {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();
-});
+// Previous month
+if (prevMonth) {
 
+    prevMonth.addEventListener("click", function () {
+
+        currentDate.setMonth(
+            currentDate.getMonth() - 1
+        );
+
+        renderCalendar();
+
+    });
+
+}
+
+
+// Next month
+if (nextMonth) {
+
+    nextMonth.addEventListener("click", function () {
+
+        currentDate.setMonth(
+            currentDate.getMonth() + 1
+        );
+
+        renderCalendar();
+
+    });
+
+}
+
+
+// Start calendar
 renderCalendar();
