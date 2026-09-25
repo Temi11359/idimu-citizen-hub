@@ -987,3 +987,181 @@ footer {
     }
 
 }
+/* =================================
+   EVENTS CALENDAR
+================================= */
+
+#calendar {
+    background: #f7faf8;
+    padding: 70px 20px;
+}
+
+#calendar .section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+#calendar .section-title h2 {
+    color: #0b5d32;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+#calendar .section-title p {
+    color: #666;
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+
+/* CALENDAR BOX */
+
+.calendar-container {
+    max-width: 850px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e1ebe4;
+}
+
+
+/* HEADER */
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.calendar-header h3 {
+    color: #0b5d32;
+    font-size: 23px;
+    margin: 0;
+}
+
+
+/* ARROWS */
+
+.calendar-nav {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: #0b5d32;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.calendar-nav:hover {
+    background: #084624;
+}
+
+
+/* WEEKDAYS */
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.calendar-weekdays span {
+    color: #0b5d32;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+/* DAYS */
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-day {
+    min-height: 65px;
+    border: 1px solid #e5ece7;
+    border-radius: 10px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    font-weight: 500;
+}
+
+.calendar-day:hover {
+    background: #eaf5ee;
+    border-color: #0b5d32;
+}
+
+
+/* TODAY */
+
+.calendar-day.today {
+    background: #0b5d32;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+
+/* SELECTED DAY */
+
+.calendar-day.selected {
+    border: 2px solid #c49a3a;
+}
+
+
+/* EMPTY CELLS */
+
+.calendar-day.empty {
+    border: none;
+    background: transparent;
+    cursor: default;
+}
+
+
+/* MESSAGE */
+
+.calendar-message {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f0f7f2;
+    border-radius: 10px;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    #calendar {
+        padding: 55px 15px;
+    }
+
+    .calendar-container {
+        padding: 18px;
+    }
+
+    .calendar-day {
+        min-height: 45px;
+        font-size: 13px;
+    }
+
+    .calendar-weekdays span {
+        font-size: 12px;
+    }
+
+}
