@@ -308,7 +308,7 @@ function toggleDepartment(id, button) {
         button.textContent = "View Details";
     }
 }
-b
+
 /* EVENTS CALENDAR */
 
 const calendarDays = document.getElementById("calendar-days");
