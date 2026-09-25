@@ -1,0 +1,882 @@
+/* ==========================================================================
+   1. RESET & VARIABLES (Green & White Theme)
+   ========================================================================== */
+:root {
+    --primary-green: #006837;
+    --dark-green: #004d28;
+    --accent-green: #00a859;
+    --light-bg: #f4f7f5;
+    --white: #ffffff;
+    --text-dark: #222222;
+    --text-muted: #555555;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Accessibility: skip link */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: var(--primary-green);
+    color: var(--white);
+    padding: 0.8rem 1.2rem;
+    z-index: 5000;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.brand-text h1 {
+    font-size: 1.1rem;
+    color: var(--primary-green);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.brand-text span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    display: block;
+}
+
+/* Decorative seal badge next to brand text */
+.seal-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    border: 2px solid var(--accent-green);
+    color: var(--primary-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--primary-green);
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+/* Nigerian-flag-inspired accent stripe under header */
+.flag-accent {
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(to right,
+        var(--primary-green) 0%, var(--primary-green) 33.33%,
+        var(--white) 33.33%, var(--white) 66.66%,
+        var(--primary-green) 66.66%, var(--primary-green) 100%);
+}
+
+/* Side Menu Drawer */
+.side-nav {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: var(--primary-green);
+    color: var(--white);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    transition: var(--transition);
+    z-index: 2000;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-nav.active {
+    right: 0;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.nav-links {
+    padding: 1rem 0;
+}
+
+.nav-links li a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: var(--white);
+    font-weight: 400;
+    border-left: 4px solid transparent;
+    transition: var(--transition);
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+    background-color: var(--dark-green);
+    border-left-color: var(--accent-green);
+    padding-left: 1.8rem;
+}
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 1500;
+}
+
+.nav-overlay.active {
+    display: block;
+}
+
+/* Marquee Bar */
+.marquee-container {
+    background-color: var(--dark-green);
+    color: var(--white);
+    padding: 8px 0;
+    font-size: 0.85rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero-section {
+    padding: 0;
+    max-width: 100%;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 104, 55, 0.85), rgba(0, 77, 40, 0.85)), url('images/hero1.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 1.5rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.8rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--white);
+    color: var(--primary-green);
+}
+
+.btn-primary:hover {
+    background-color: var(--light-bg);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-outline:hover {
+    background-color: var(--white);
+    color: var(--primary-green);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. GLOBAL SECTION STYLES
+   ========================================================================== */
+section {
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 1.8rem;
+    color: var(--primary-green);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-green);
+}
+
+/* ==========================================================================
+   5. ABOUT SECTION
+   ========================================================================== */
+.about-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--primary-green);
+}
+
+.about-card p {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   6. DEPARTMENTS SECTION
+   ========================================================================== */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.dept-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.dept-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-green);
+}
+
+.dept-card h3 {
+    font-size: 1.05rem;
+    color: var(--primary-green);
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   7. EXECUTIVE LEADERSHIP SECTION
+   ========================================================================== */
+.exec-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.exec-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background-color: #ddd;
+}
+
+.exec-info {
+    padding: 1.2rem;
+}
+
+.exec-info h3 {
+    font-size: 1.1rem;
+    color: var(--primary-green);
+}
+
+.exec-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   8. SERVICES SECTION (Accordion)
+   ========================================================================== */
+.accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.accordion-item {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary-green);
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+}
+
+.service-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--primary-green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.service-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+}
+
+.service-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.service-status {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-online {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+
+.status-inperson {
+    background-color: #fef7e0;
+    color: #b06000;
+}
+
+.accordion-toggle-icon {
+    font-size: 1.4rem;
+    color: var(--primary-green);
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-toggle-icon {
+    transform: rotate(45deg);
+}
+
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1.5rem;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-panel.open {
+    max-height: 600px;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.service-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.service-details h4 {
+    font-size: 0.9rem;
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+}
+
+.service-details ul {
+    margin-bottom: 1rem;
+    padding-left: 0.2rem;
+}
+
+.service-details ul li {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    padding: 0.2rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.service-details ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-weight: 700;
+}
+
+.service-fee, .service-howto {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   9. PROJECTS SECTION
+   ========================================================================== */
+.project-card {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary-green);
+    padding: 0;
+    overflow: hidden;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-body {
+    padding: 1.5rem;
+}
+
+.project-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.badge-completed {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+
+.badge-ongoing {
+    background-color: #fef7e0;
+    color: #b06000;
+}
+
+.project-location {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   10. GALLERY SECTION
+   ========================================================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    height: 180px;
+    background-color: #ccc;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Gallery Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 4px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--white);
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   11. ANNOUNCEMENTS
+   ========================================================================== */
+.news-item {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--accent-green);
+}
+
+.news-date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-green);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+}
+
+.news-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   12. CITIZEN ASSISTANT (CHATBOX)
+   ========================================================================== */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chat-btn {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.chat-box {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    max-width: calc(100vw - 40px);
+    height: 420px;
+    max-height: 70vh;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    border: 1px solid var(--border-color);
+}
+
+.chat-box.active {
+    display: flex;
+}
+
+.chat-header {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 12px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.message.bot {
+    background-color: #e0e0e0;
+    color: var(--text-dark);
+    align-self: flex-start;
+}
+
+.message.user {
+    background-color: var(--primary-green);
+    color: var(--white);
+    align-self: flex-end;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid var(--border-color);
+}
+
+.chat-input input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    outline: none;
+    font-size: 0.85rem;
+}
+
+.chat-input button {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+/* Chatbox responsiveness on small screens */
+@media (max-width: 480px) {
+    .chat-widget {
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .chat-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .chat-box {
+        right: 12px;
+        bottom: 68px;
+        width: calc(100vw - 24px);
+        height: 65vh;
+        max-height: 440px;
+    }
+}
+
+/* ==========================================================================
+   13. CONTACT & FOOTER
+   ========================================================================== */
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.contact-info p {
+    margin-bottom: 0.8rem;
+    color: var(--text-muted);
+}
+
+footer {
+    background-color: var(--dark-green);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   14. CHAT SCROLLBAR & TYPING INDICATOR
+   ========================================================================== */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-green);
+}
+
+.chat-messages {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    .hero h2 { font-size: 1.6rem; }
+    .hero p { font-size: 0.95rem; }
+    .section-title h2 { font-size: 1.5rem; }
+    .seal-badge { display: none; }
+}
