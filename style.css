@@ -1264,3 +1264,198 @@ footer {
     color: #176b3a;
     background: #f2f7f4;
 }
+/* =================================
+   DEPARTMENT DIRECTORY - NEW STYLE
+================================= */
+
+/* Department cards */
+
+.department-directory {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.directory-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    border: 1px solid #e4eee8;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    transition: 0.3s ease;
+}
+
+.directory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.directory-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+    background: #e9f5ee;
+
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.directory-content h3 {
+    color: #176b3a;
+    margin-bottom: 12px;
+}
+
+.hod-info {
+    background: #f7faf8;
+    border-left: 4px solid #d4a017;
+
+    padding: 12px 15px;
+    border-radius: 8px;
+
+    margin-bottom: 15px;
+}
+
+.hod-info strong {
+    color: #176b3a;
+}
+
+.hod-info span {
+    color: #444;
+}
+
+
+/* Department description */
+
+.directory-content p {
+    color: #666;
+    line-height: 1.7;
+}
+
+
+/* Responsibilities */
+
+.directory-content h4 {
+    color: #176b3a;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.directory-content ul {
+    padding-left: 20px;
+    color: #555;
+    line-height: 1.8;
+}
+
+
+/* VIEW DETAILS BUTTON */
+
+.details-btn {
+    border: none;
+    background: #176b3a;
+    color: #ffffff;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.details-btn:hover {
+    background: #d4a017;
+}
+
+
+/* DETAILS ARE HIDDEN INITIALLY */
+
+.department-details {
+    display: none;
+    margin-top: 18px;
+}
+
+
+/* VIEW ALL BUTTON AREA */
+
+.departments-more {
+    text-align: center;
+    margin: 35px 0;
+}
+
+
+/* VIEW ALL BUTTON */
+
+.view-all-departments {
+    border: none;
+
+    background: #176b3a;
+    color: #ffffff;
+
+    padding: 14px 28px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.view-all-departments:hover {
+    background: #d4a017;
+    transform: translateY(-2px);
+}
+
+.view-all-departments span {
+    margin-left: 8px;
+}
+
+
+/* HIDE EXTRA DEPARTMENTS */
+
+.more-departments {
+    display: none;
+}
+
+
+/* CATEGORY TITLES */
+
+.directory-category {
+    max-width: 1100px;
+    margin: 45px auto 20px;
+}
+
+.directory-category h3 {
+    color: #176b3a;
+    font-size: 22px;
+    border-left: 5px solid #d4a017;
+    padding-left: 12px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .department-directory {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .directory-card {
+        padding: 20px;
+    }
+
+}
