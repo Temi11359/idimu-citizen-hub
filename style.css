@@ -1252,3 +1252,15 @@ footer {
     }
 
 }
+#sideNav {
+    background: #ffffff;
+}
+
+#sideNav .nav-links a {
+    color: #000000;
+}
+
+#sideNav .nav-links a:hover {
+    color: #176b3a;
+    background: #f2f7f4;
+}
