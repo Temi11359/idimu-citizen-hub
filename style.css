@@ -914,3 +914,185 @@ footer {
         padding: 22px;
     }
 }
+
+/* ==========================================
+   FULL DEPARTMENT DIRECTORY DESIGN
+========================================== */
+
+#all-departments {
+    background: #f5f9f6;
+    padding: 70px 20px;
+}
+
+#all-departments .section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+#all-departments .section-title h2 {
+    color: #0b5d32;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+#all-departments .section-title p {
+    color: #666;
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+
+/* CATEGORY TITLE */
+
+.directory-category {
+    max-width: 1100px;
+    margin: 45px auto 20px;
+}
+
+.directory-category h3 {
+    color: #0b5d32;
+    font-size: 23px;
+    border-left: 5px solid #c49a3a;
+    padding-left: 12px;
+}
+
+
+/* CARD GRID */
+
+.department-directory {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+
+/* CARD */
+
+.directory-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px;
+    border: 1px solid #e0ebe4;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    display: flex;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.directory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+}
+
+
+/* ICON */
+
+.directory-icon {
+    min-width: 55px;
+    width: 55px;
+    height: 55px;
+    background: #e8f4ec;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+
+/* CONTENT */
+
+.directory-content {
+    flex: 1;
+}
+
+.directory-content h3 {
+    color: #0b5d32;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.directory-content p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+
+/* HOD */
+
+.hod-info {
+    background: #eef7f1;
+    border-left: 4px solid #0b5d32;
+    padding: 12px 15px;
+    border-radius: 7px;
+    margin-bottom: 18px;
+}
+
+.hod-info strong {
+    color: #0b5d32;
+}
+
+.hod-info span {
+    color: #444;
+}
+
+
+/* RESPONSIBILITIES */
+
+.directory-content h4 {
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 9px;
+}
+
+.directory-content ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.directory-content li {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+
+/* TABLET */
+
+@media (max-width: 850px) {
+
+    .department-directory {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* PHONE */
+
+@media (max-width: 600px) {
+
+    #all-departments {
+        padding: 55px 15px;
+    }
+
+    #all-departments .section-title h2 {
+        font-size: 27px;
+    }
+
+    .directory-card {
+        flex-direction: column;
+        padding: 23px;
+    }
+
+    .directory-icon {
+        min-width: 55px;
+    }
+
+}
