@@ -308,8 +308,9 @@ function toggleDepartment(id, button) {
         button.textContent = "View Details";
     }
 }
+b
 /* =================================
-   EVENTS CALENDAR
+EVENTS CALENDAR
 ================================= */
 
 const calendarDays = document.getElementById("calendar-days");
@@ -322,102 +323,100 @@ let currentDate = new Date();
 
 function renderCalendar() {
 
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
+const year = currentDate.getFullYear();  
+const month = currentDate.getMonth();  
 
-    const firstDay = new Date(year, month, 1).getDay();
-    const lastDate = new Date(year, month + 1, 0).getDate();
+const firstDay = new Date(year, month, 1).getDay();  
+const lastDate = new Date(year, month + 1, 0).getDate();  
 
-    const monthName = currentDate.toLocaleString("default", {
-        month: "long"
-    });
+const monthName = currentDate.toLocaleString("default", {  
+    month: "long"  
+});  
 
-    monthYear.textContent = `${monthName} ${year}`;
+monthYear.textContent = `${monthName} ${year}`;  
 
-    calendarDays.innerHTML = "";
+calendarDays.innerHTML = "";  
 
-    /* Empty spaces before the first day */
+/* Empty spaces before the first day */  
 
-    for (let i = 0; i < firstDay; i++) {
+for (let i = 0; i < firstDay; i++) {  
 
-        const emptyDay = document.createElement("div");
+    const emptyDay = document.createElement("div");  
 
-        emptyDay.classList.add("calendar-day", "empty");
+    emptyDay.classList.add("calendar-day", "empty");  
 
-        calendarDays.appendChild(emptyDay);
-    }
-
-
-    /* Create the days */
-
-    for (let day = 1; day <= lastDate; day++) {
-
-        const dayElement = document.createElement("div");
-
-        dayElement.classList.add("calendar-day");
-
-        dayElement.textContent = day;
+    calendarDays.appendChild(emptyDay);  
+}  
 
 
-        /* Check today's date */
+/* Create the days */  
 
-        const today = new Date();
+for (let day = 1; day <= lastDate; day++) {  
 
-        if (
-            day === today.getDate() &&
-            month === today.getMonth() &&
-            year === today.getFullYear()
-        ) {
+    const dayElement = document.createElement("div");  
 
-            dayElement.classList.add("today");
+    dayElement.classList.add("calendar-day");  
 
-        }
+    dayElement.textContent = day;  
 
 
-        /* Click date */
+    /* Check today's date */  
 
-        dayElement.addEventListener("click", function () {
+    const today = new Date();  
 
-            document
-                .querySelectorAll(".calendar-day.selected")
-                .forEach(day => {
-                    day.classList.remove("selected");
-                });
+    if (  
+        day === today.getDate() &&  
+        month === today.getMonth() &&  
+        year === today.getFullYear()  
+    ) {  
 
-            dayElement.classList.add("selected");
+        dayElement.classList.add("today");  
 
-            selectedDateMessage.textContent =
-                `${monthName} ${day}, ${year} — No events scheduled.`;
-
-        });
+    }  
 
 
-        calendarDays.appendChild(dayElement);
-    }
+    /* Click date */  
+
+    dayElement.addEventListener("click", function () {  
+
+        document  
+            .querySelectorAll(".calendar-day.selected")  
+            .forEach(day => {  
+                day.classList.remove("selected");  
+            });  
+
+        dayElement.classList.add("selected");  
+
+        selectedDateMessage.textContent =  
+            `${monthName} ${day}, ${year} — No events scheduled.`;  
+
+    });  
+
+
+    calendarDays.appendChild(dayElement);  
 }
 
+}
 
 /* Previous month */
 
 prevMonth.addEventListener("click", function () {
 
-    currentDate.setMonth(currentDate.getMonth() - 1);
+currentDate.setMonth(currentDate.getMonth() - 1);  
 
-    renderCalendar();
+renderCalendar();
 
 });
-
 
 /* Next month */
 
 nextMonth.addEventListener("click", function () {
 
-    currentDate.setMonth(currentDate.getMonth() + 1);
+currentDate.setMonth(currentDate.getMonth() + 1);  
 
-    renderCalendar();
+renderCalendar();
 
 });
-
 
 /* Start calendar */
 
