@@ -6,7 +6,7 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#003366",
-  "orientation": "portrait-or-landscape",
+  "orientation": "portrait"
   "icons": [
     {
       "src": "/idimu-citizen-hub/images/icon-192.png",
