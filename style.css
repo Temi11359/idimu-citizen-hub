@@ -1735,3 +1735,14 @@ transition: none;
 }
 
 }
+/* Separate leadership categories */
+.leadership-category {
+    margin-top: 40px;
+    margin-bottom: 25px;
+    clear: both;
+}
+
+/* Give the leadership cards room to breathe */
+.leadership-grid {
+    margin-bottom: 35px;
+}
