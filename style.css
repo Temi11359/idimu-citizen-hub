@@ -1476,3 +1476,262 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================
+EXECUTIVE & LEADERSHIP SECTION
+========================================== */
+
+#leadership {
+padding: 80px 6%;
+background: linear-gradient(180deg, #f7faf7 0%, #ffffff 100%);
+overflow: hidden;
+}
+
+/* Main section heading */
+
+#leadership .section-title {
+text-align: center;
+max-width: 750px;
+margin: 0 auto 55px;
+}
+
+#leadership .section-title h2 {
+color: #124b32;
+font-size: clamp(2rem, 4vw, 2.8rem);
+font-weight: 800;
+letter-spacing: -1px;
+margin-bottom: 15px;
+}
+
+#leadership .section-title h2::after {
+content: "";
+display: block;
+width: 65px;
+height: 4px;
+background: #d4a83f;
+border-radius: 10px;
+margin: 18px auto 0;
+}
+
+#leadership .section-title p {
+color: #68766d;
+font-size: 1rem;
+line-height: 1.9;
+margin-top: 20px;
+}
+
+/* Category headings */
+
+#leadership .leadership-category {
+margin: 55px 0 25px;
+padding-left: 18px;
+border-left: 4px solid #d4a83f;
+}
+
+#leadership .leadership-category h3 {
+color: #124b32;
+font-size: 1.5rem;
+font-weight: 750;
+margin: 0 0 8px;
+}
+
+#leadership .leadership-category p {
+color: #778078;
+font-size: 0.95rem;
+line-height: 1.7;
+margin: 0;
+}
+
+/* Leadership card grid */
+
+#leadership .leadership-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 28px;
+align-items: stretch;
+}
+
+/* Individual cards */
+
+#leadership .exec-card {
+position: relative;
+display: flex;
+flex-direction: column;
+min-width: 0;
+background: #ffffff;
+border: 1px solid #e5ece6;
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 6px 22px rgba(18, 75, 50, 0.06);
+transition:
+transform 0.3s ease,
+box-shadow 0.3s ease,
+border-color 0.3s ease;
+}
+
+#leadership .exec-card:hover {
+transform: translateY(-7px);
+border-color: #c8d9cd;
+box-shadow: 0 16px 35px rgba(18, 75, 50, 0.13);
+}
+
+/* Official portraits */
+
+#leadership .exec-card > img {
+display: block;
+width: 100%;
+height: 280px;
+object-fit: cover;
+object-position: center top;
+background: #edf3ee;
+border-bottom: 4px solid #d4a83f;
+}
+
+/* Text area */
+
+#leadership .exec-info {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+flex: 1;
+padding: 25px 23px 27px;
+}
+
+/* Position badge */
+
+#leadership .exec-role {
+display: inline-block;
+max-width: 100%;
+margin-bottom: 13px;
+padding: 7px 12px;
+border-radius: 6px;
+background: #eaf3ec;
+color: #17603d;
+font-size: 0.72rem;
+font-weight: 800;
+letter-spacing: 0.7px;
+line-height: 1.5;
+text-transform: uppercase;
+overflow-wrap: anywhere;
+}
+
+/* Official's name */
+
+#leadership .exec-info h3 {
+color: #20372a;
+font-size: 1.18rem;
+font-weight: 750;
+line-height: 1.5;
+margin: 0 0 13px;
+overflow-wrap: anywhere;
+}
+
+/* Subtle gold divider */
+
+#leadership .exec-info h3::after {
+content: "";
+display: block;
+width: 35px;
+height: 3px;
+background: #d4a83f;
+border-radius: 5px;
+margin-top: 12px;
+}
+
+/* Official descriptions */
+
+#leadership .exec-info p {
+color: #69766d;
+font-size: 0.94rem;
+line-height: 1.9;
+margin: 0;
+}
+
+/* Responsive layout: tablets */
+
+@media (max-width: 1000px) {
+#leadership {
+padding: 65px 5%;
+}
+
+#leadership .leadership-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+#leadership .exec-card > img {
+    height: 260px;
+}
+
+}
+
+/* Responsive layout: mobile phones */
+
+@media (max-width: 600px) {
+#leadership {
+padding: 50px 18px;
+}
+
+#leadership .section-title {
+    margin-bottom: 40px;
+}
+
+#leadership .section-title h2 {
+    letter-spacing: -0.5px;
+}
+
+#leadership .section-title p {
+    font-size: 0.94rem;
+    line-height: 1.8;
+}
+
+#leadership .leadership-category {
+    margin: 40px 0 22px;
+    padding-left: 13px;
+}
+
+#leadership .leadership-category h3 {
+    font-size: 1.3rem;
+}
+
+#leadership .leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+
+#leadership .exec-card {
+    border-radius: 16px;
+}
+
+#leadership .exec-card > img {
+    height: 320px;
+    object-position: center 25%;
+}
+
+#leadership .exec-info {
+    padding: 23px 21px 25px;
+}
+
+#leadership .exec-info h3 {
+    font-size: 1.2rem;
+}
+
+#leadership .exec-info p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+}
+
+}
+
+/* Respect visitors who prefer reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+#leadership .exec-card {
+transition: none;
+}
+
+#leadership .exec-card:hover {
+    transform: none;
+}
+
+}
