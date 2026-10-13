@@ -1746,3 +1746,21 @@ transition: none;
 .leadership-grid {
     margin-bottom: 35px;
 }
+
+/* PROJECT CARD IMAGES */
+.project-card {
+overflow: hidden;
+}
+
+.project-card img {
+width: 100%;
+height: 230px;
+object-fit: cover;
+object-position: center;
+display: block;
+border-radius: 0;
+}
+
+.project-body {
+padding: 20px;
+}
