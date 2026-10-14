@@ -1144,6 +1144,145 @@
 
 </section>
 
+        <!-- CITIZEN COMPLAINT & REPORT SECTION -->
+<section id="complaints">
+
+    <div class="section-title">
+        <h2>Citizen Complaints & Reports</h2>
+        <p>
+            Help us improve our communities. Report infrastructure problems
+            and other local concerns through the form below.
+        </p>
+    </div>
+
+    <div class="complaint-container">
+
+        <div class="complaint-info">
+            <h3>Your Community, Your Voice</h3>
+
+            <p>
+                Residents can use this form to report problems affecting
+                their communities and public facilities.
+            </p>
+
+            <div class="complaint-item">
+                <span>🛣️</span>
+                <div>
+                    <h4>Damaged Roads</h4>
+                    <p>Report potholes and damaged community roads.</p>
+                </div>
+            </div>
+
+            <div class="complaint-item">
+                <span>🌧️</span>
+                <div>
+                    <h4>Drainage Problems</h4>
+                    <p>Report blocked drainage and flooding concerns.</p>
+                </div>
+            </div>
+
+            <div class="complaint-item">
+                <span>🗑️</span>
+                <div>
+                    <h4>Environmental Issues</h4>
+                    <p>Report illegal dumping and sanitation concerns.</p>
+                </div>
+            </div>
+
+            <div class="complaint-item">
+                <span>🏢</span>
+                <div>
+                    <h4>Public Infrastructure</h4>
+                    <p>Report problems affecting public facilities.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="complaint-form-wrapper">
+
+            <h3>Submit a Report</h3>
+
+            <form id="complaintForm">
+
+                <div class="form-group">
+                    <label for="complaintName">Full Name (Optional)</label>
+                    <input
+                        type="text"
+                        id="complaintName"
+                        name="name"
+                        placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="complaintEmail">Email Address (Optional)</label>
+                    <input
+                        type="email"
+                        id="complaintEmail"
+                        name="email"
+                        placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label for="complaintCategory">Type of Complaint *</label>
+                    <select id="complaintCategory" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="Road Damage">Road Damage</option>
+                        <option value="Drainage and Flooding">Drainage and Flooding</option>
+                        <option value="Environmental Sanitation">Environmental Sanitation</option>
+                        <option value="Public Infrastructure">Public Infrastructure</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="complaintLocation">Location of the Problem *</label>
+                    <input
+                        type="text"
+                        id="complaintLocation"
+                        name="location"
+                        placeholder="Enter the street or community"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="complaintDescription">Describe the Problem *</label>
+                    <textarea
+                        id="complaintDescription"
+                        name="description"
+                        rows="5"
+                        placeholder="Explain the issue and how it affects the community"
+                        required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="complaintPhoto">Upload a Photograph (Optional)</label>
+                    <input
+                        type="file"
+                        id="complaintPhoto"
+                        name="photo"
+                        accept="image/jpeg,image/png,image/webp">
+                    <small>Maximum file size: 5 MB.</small>
+                </div>
+
+                <p class="complaint-privacy">
+                    Please avoid including passwords, financial information
+                    or other sensitive personal details in your report.
+                </p>
+
+                <button type="submit" class="complaint-submit">
+                    Submit Complaint
+                </button>
+
+                <p id="complaintMessage" role="status" aria-live="polite"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
     <!-- 10. CONTACT US SECTION -->
     <section id="contact">
         <div class="section-title">
