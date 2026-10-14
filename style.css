@@ -1764,3 +1764,142 @@ border-radius: 0;
 .project-body {
 padding: 20px;
 }
+/* CITIZEN COMPLAINT SECTION */
+
+#complaints {
+    padding: 70px 5%;
+    background: #f5f8f5;
+}
+
+.complaint-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 35px;
+    max-width: 1150px;
+    margin: 35px auto 0;
+    align-items: start;
+}
+
+.complaint-info,
+.complaint-form-wrapper {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.complaint-info h3,
+.complaint-form-wrapper h3 {
+    color: #176b3a;
+    margin-bottom: 15px;
+}
+
+.complaint-info > p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.complaint-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.complaint-item > span {
+    font-size: 27px;
+}
+
+.complaint-item h4 {
+    margin: 0 0 6px;
+    color: #222;
+}
+
+.complaint-item p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.complaint-form-wrapper .form-group {
+    margin-bottom: 20px;
+}
+
+.complaint-form-wrapper label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.complaint-form-wrapper input,
+.complaint-form-wrapper select,
+.complaint-form-wrapper textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d5ddd7;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 15px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.complaint-form-wrapper textarea {
+    resize: vertical;
+}
+
+.complaint-form-wrapper input:focus,
+.complaint-form-wrapper select:focus,
+.complaint-form-wrapper textarea:focus {
+    outline: 2px solid #176b3a;
+    outline-offset: 1px;
+}
+
+.complaint-form-wrapper small {
+    display: block;
+    margin-top: 7px;
+    color: #666;
+}
+
+.complaint-privacy {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.complaint-submit {
+    width: 100%;
+    padding: 14px;
+    background: #176b3a;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.complaint-submit:hover {
+    background: #10532c;
+}
+
+#complaintMessage {
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .complaint-container {
+        grid-template-columns: 1fr;
+    }
+
+    .complaint-info,
+    .complaint-form-wrapper {
+        padding: 22px;
+    }
+}
