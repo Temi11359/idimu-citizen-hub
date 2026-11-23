@@ -580,10 +580,10 @@ if (showRegister) {
     showRegister.addEventListener("click", function(event) {
         event.preventDefault();
 
-        loginSection.style.display = "none";
-        registerSection.style.display = "flex";
+        loginSection.style.setProperty("display", "none", "important");
+        registerSection.style.setProperty("display", "flex", "important");
 
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo(0, 0);
     });
 }
 
