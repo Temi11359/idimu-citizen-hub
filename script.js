@@ -548,6 +548,18 @@ if (backToHome) {
     });
 }
 
+// LOGIN AND REGISTRATION ELEMENTS
+const loginSection = document.getElementById("loginSection");
+const loginLink = document.getElementById("loginLink");
+const backToHome = document.getElementById("backToHome");
+
+const showRegister = document.getElementById("showRegister");
+const registerSection = document.getElementById("registerSection");
+const backToLogin = document.getElementById("backToLogin");
+const registerForm = document.getElementById("registerForm");
+
+// SHOW LOGIN SCREEN WHEN WEBSITE OPENS
+
 // SHOW LOGIN SCREEN WHEN WEBSITE OPENS
 
 document.addEventListener("DOMContentLoaded", function() {
