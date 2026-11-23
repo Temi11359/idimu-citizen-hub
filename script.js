@@ -585,3 +585,20 @@ if (backToLogin) {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
+
+// REGISTRATION FORM VALIDATION
+if (registerForm) {
+    registerForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const password = document.getElementById("registerPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            alert("Your passwords do not match!");
+            return;
+        }
+
+        alert("Registration form completed! We'll connect account creation to Supabase next.");
+    });
+}
