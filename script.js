@@ -561,3 +561,27 @@ document.addEventListener("DOMContentLoaded", function() {
 const registerSection = document.getElementById("registerSection");
 const backToLogin = document.getElementById("backToLogin");
 const registerForm = document.getElementById("registerForm");
+
+// OPEN REGISTRATION PAGE
+if (showRegister) {
+    showRegister.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        loginSection.style.display = "none";
+        registerSection.style.display = "flex";
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+// RETURN TO LOGIN PAGE
+if (backToLogin) {
+    backToLogin.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        registerSection.style.display = "none";
+        loginSection.style.display = "flex";
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
