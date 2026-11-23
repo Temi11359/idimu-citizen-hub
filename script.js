@@ -626,3 +626,17 @@ if (registerForm) {
         alert("Registration form completed! We'll connect account creation to Supabase next.");
     });
 }
+
+// TEST SUPABASE CONNECTION
+
+async function testSupabase() {
+    const { data, error } = await supabaseClient.auth.getSession();
+
+    if (error) {
+        console.error("Supabase connection failed:", error.message);
+    } else {
+        console.log("Supabase connected successfully!");
+    }
+}
+
+testSupabase();
