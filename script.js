@@ -557,6 +557,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loginSection.style.display = "flex";
 
 });
+
 // REGISTRATION SCREEN
 const registerSection = document.getElementById("registerSection");
 const backToLogin = document.getElementById("backToLogin");
