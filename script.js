@@ -640,3 +640,43 @@ async function testSupabase() {
 }
 
 testSupabase();
+
+// SUPABASE REGISTRATION
+
+const registerForm = document.getElementById("registerForm");
+
+registerForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const fullName = document.getElementById("registerName").value.trim();
+    const email = document.getElementById("registerEmail").value.trim();
+    const phone = document.getElementById("registerPhone").value.trim();
+    const address = document.getElementById("registerAddress").value.trim();
+    const password = document.getElementById("registerPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    const { data, error } = await supabaseClient.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+            data: {
+                full_name: fullName,
+                phone: phone,
+                address: address
+            }
+        }
+    });
+
+    if (error) {
+        alert(error.message);
+        return;
+    }
+
+    alert("Account created! Please check your email to confirm your account.");
+    registerForm.reset();
+});
