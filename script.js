@@ -1,3 +1,14 @@
+// SUPABASE CONNECTION
+
+const SUPABASE_URL = "https://oqecxscxohzkmvninpqk.supabase.co/rest/v1/";
+
+const SUPABASE_KEY = "sb_publishable_h-VtuNGY4fgob8O3Ml0b9w_SNo7cIC0";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
 // --- Image Fallback Handling ---
 document.querySelectorAll('img[data-fallback]').forEach(img => {
     img.addEventListener('error', () => {
