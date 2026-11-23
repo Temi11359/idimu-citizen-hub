@@ -547,3 +547,13 @@ if (backToHome) {
         });
     });
 }
+
+// SHOW LOGIN SCREEN WHEN WEBSITE OPENS
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    document.body.classList.add("login-first");
+
+    loginSection.style.display = "flex";
+
+});
