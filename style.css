@@ -2057,7 +2057,7 @@ body.login-first {
     overflow: hidden;
 }
 
-body.login-first > *:not(#loginSection) {
+body.login-first > *:not(#loginSection):not(#registerSection) {
     display: none !important;
 }
 
