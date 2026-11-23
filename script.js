@@ -512,3 +512,77 @@ if (viewAllDepartmentsBtn && moreDepartments) {
     });
 
 }
+
+// LOGIN PAGE NAVIGATION
+
+const loginSection = document.getElementById("loginSection");
+
+const loginLink = document.getElementById("loginLink");
+
+const backToHome = document.getElementById("backToHome");
+
+const loginForm = document.getElementById("loginForm");
+
+const showRegister = document.getElementById("showRegister");
+
+const forgotPassword = document.getElementById("forgotPassword");
+
+// OPEN LOGIN PAGE
+
+if (loginLink) {
+    loginLink.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        loginSection.style.display = "flex";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+// RETURN TO HOMEPAGE
+
+if (backToHome) {
+    backToHome.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        loginSection.style.display = "none";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+// LOGIN FORM SUBMISSION
+
+if (loginForm) {
+    loginForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        alert("Login authentication will be connected to Supabase soon.");
+    });
+}
+
+// REGISTRATION LINK
+
+if (showRegister) {
+    showRegister.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        alert("Registration page coming soon!");
+    });
+}
+
+// FORGOT PASSWORD
+
+if (forgotPassword) {
+    forgotPassword.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        alert("Password recovery will be available soon.");
+    });
+}
