@@ -2062,7 +2062,7 @@ body.login-first > *:not(#loginSection):not(#registerSection) {
 }
 
 body.login-first #loginSection {
-    display: flex !important;
+    display: flex;
     position: fixed;
     inset: 0;
     width: 100%;
