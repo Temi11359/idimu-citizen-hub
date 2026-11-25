@@ -1,6 +1,5 @@
-// SUPABASE CONNECTION
-
-const SUPABASE_URL = "https://oqecxscxohzkmvninpqk.supabase.co/rest/v1/";
+// SUPABASE CONNECTION //
+const SUPABASE_URL = "https://oqecxscxohzkmvninpqk.supabase.co";
 
 const SUPABASE_KEY = "sb_publishable_h-VtuNGY4fgob8O3Ml0b9w_SNo7cIC0";
 
@@ -524,108 +523,185 @@ if (viewAllDepartmentsBtn && moreDepartments) {
 
 }
 
-// OPEN LOGIN PAGE
 
+// =================================
+// LOGIN AND REGISTRATION
+// =================================
+
+const loginSection = document.getElementById("loginSection");
+const registerSection = document.getElementById("registerSection");
+
+const loginLink = document.getElementById("loginLink");
+const showRegister = document.getElementById("showRegister");
+const backToLogin = document.getElementById("backToLogin");
+
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
+const forgotPassword = document.getElementById("forgotPassword");
+
+// SHOW LOGIN SCREEN
+function showLoginScreen() {
+    document.body.classList.add("login-first");
+
+    registerSection.style.display = "none";
+    loginSection.style.display = "flex";
+
+    window.scrollTo(0, 0);
+}
+
+// SHOW REGISTRATION SCREEN
+function showRegistrationScreen() {
+    document.body.classList.add("login-first");
+
+    loginSection.style.display = "none";
+    registerSection.style.display = "flex";
+
+    window.scrollTo(0, 0);
+}
+
+// SHOW HOMEPAGE AFTER SUCCESSFUL LOGIN
+function showHomepage() {
+    document.body.classList.remove("login-first");
+
+    loginSection.style.display = "none";
+    registerSection.style.display = "none";
+
+    window.scrollTo(0, 0);
+}
+
+// OPEN LOGIN FROM NAVIGATION
 if (loginLink) {
     loginLink.addEventListener("click", function(event) {
         event.preventDefault();
-
-        document.body.classList.add("login-first");
-
-        loginSection.style.display = "flex";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+        showLoginScreen();
     });
 }
 
-
-// RETURN TO HOMEPAGE
-
-if (backToHome) {
-    backToHome.addEventListener("click", function(event) {
-        event.preventDefault();
-
-        document.body.classList.remove("login-first");
-
-        loginSection.style.display = "none";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-}
-
-// LOGIN AND REGISTRATION ELEMENTS
-const loginSection = document.getElementById("loginSection");
-const loginLink = document.getElementById("loginLink");
-const backToHome = document.getElementById("backToHome");
-
-const showRegister = document.getElementById("showRegister");
-const registerSection = document.getElementById("registerSection");
-const backToLogin = document.getElementById("backToLogin");
-const registerForm = document.getElementById("registerForm");
-
-// SHOW LOGIN SCREEN WHEN WEBSITE OPENS
-
-// SHOW LOGIN SCREEN WHEN WEBSITE OPENS
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    document.body.classList.add("login-first");
-
-    loginSection.style.display = "flex";
-
-});
-
-// REGISTRATION SCREEN
-const registerSection = document.getElementById("registerSection");
-const backToLogin = document.getElementById("backToLogin");
-const registerForm = document.getElementById("registerForm");
-
-// OPEN REGISTRATION PAGE
+// OPEN REGISTRATION
 if (showRegister) {
     showRegister.addEventListener("click", function(event) {
         event.preventDefault();
-
-        loginSection.style.setProperty("display", "none", "important");
-        registerSection.style.setProperty("display", "flex", "important");
-
-        window.scrollTo(0, 0);
+        showRegistrationScreen();
     });
 }
 
-// RETURN TO LOGIN PAGE
+// RETURN TO LOGIN
 if (backToLogin) {
     backToLogin.addEventListener("click", function(event) {
         event.preventDefault();
-
-        registerSection.style.display = "none";
-        loginSection.style.display = "flex";
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        showLoginScreen();
     });
 }
 
-// REGISTRATION FORM VALIDATION
+// REGISTER A NEW USER
 if (registerForm) {
-    registerForm.addEventListener("submit", function(event) {
+    registerForm.addEventListener("submit", async function(event) {
         event.preventDefault();
 
+        const fullName = document.getElementById("registerName").value.trim();
+        const email = document.getElementById("registerEmail").value.trim();
+        const phone = document.getElementById("registerPhone").value.trim();
+        const address = document.getElementById("registerAddress").value.trim();
         const password = document.getElementById("registerPassword").value;
         const confirmPassword = document.getElementById("confirmPassword").value;
 
         if (password !== confirmPassword) {
-            alert("Your passwords do not match!");
+            alert("Your passwords do not match.");
             return;
         }
 
-        alert("Registration form completed! We'll connect account creation to Supabase next.");
+        const button = document.getElementById("registerButton");
+        button.disabled = true;
+        button.textContent = "Creating account...";
+
+        try {
+            const { data, error } = await supabaseClient.auth.signUp({
+                email: email,
+                password: password,
+                options: {
+                    data: {
+                        full_name: fullName,
+                        phone: phone,
+                        address: address
+                    }
+                }
+            });
+
+            if (error) throw error;
+
+            alert("Registration successful! Check your email if confirmation is required.");
+
+            registerForm.reset();
+            showLoginScreen();
+
+        } catch (error) {
+            alert("Registration failed: " + error.message);
+        } finally {
+            button.disabled = false;
+            button.textContent = "Create Account";
+        }
     });
 }
+
+// LOG IN AN EXISTING USER
+if (loginForm) {
+    loginForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById("loginEmail").value.trim();
+        const password = document.getElementById("loginPassword").value;
+
+        const button = document.getElementById("loginButton");
+        button.disabled = true;
+        button.textContent = "Logging in...";
+
+        try {
+            const { data, error } = await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
+
+            if (error) throw error;
+
+            alert("Login successful. Welcome!");
+
+            showHomepage();
+
+        } catch (error) {
+            alert("Login failed: " + error.message);
+        } finally {
+            button.disabled = false;
+            button.textContent = "Log In";
+        }
+    });
+}
+
+// FORGOT PASSWORD
+if (forgotPassword) {
+    forgotPassword.addEventListener("click", function(event) {
+        event.preventDefault();
+        alert("Password recovery will be configured next.");
+    });
+}
+
+// CHECK EXISTING LOGIN SESSION
+async function checkLoginSession() {
+    const { data, error } = await supabaseClient.auth.getSession();
+
+    if (error) {
+        console.error("Session check failed:", error.message);
+        showLoginScreen();
+        return;
+    }
+
+    if (data.session) {
+        showHomepage();
+    } else {
+        showLoginScreen();
+    }
+}
+
+checkLoginSession();
 
 // TEST SUPABASE CONNECTION
 
